@@ -1,0 +1,167 @@
+﻿h2 {
+  color: #333;
+}
+#logo {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+}
+
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+#dropdownMenuButton {
+    width:75px;
+    padding:5px;
+}
+
+#spacing{
+    width:100%;
+    height:40px;
+}
+
+#details{
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    position:relative;
+}
+
+.rightBorder {
+  border-right: 1px solid gray;
+  color: black;
+  padding-bottom: 0.5em;
+}
+
+#detailsHeaderRight {
+    text-align: center;
+    width:250px;
+    padding-bottom: 1.5em;
+}
+
+#detailsHeaderLeft {
+    text-align: center;
+    width:50%;
+    border-right: 1px solid gray;
+    color: black;
+    padding-bottom: 1.5em;
+}
+
+.detailsLabel {
+    text-align: right;
+    width:17%;
+}
+
+#nameLabel {
+    text-align: right;
+    width:17%;
+}
+
+#accountNumberLabel {
+    text-align: right;
+    width:20%;
+}
+
+.detailsLabelLeftBottom {
+    text-align: right;
+    padding-bottom: 2.5em;
+}
+
+#emailInput {
+    text-align: left;
+    border-right: 1px solid gray;
+    padding-bottom: 2.5em;
+}
+
+#bsbInput {
+    text-align: left;
+    padding-bottom: 2.5em;
+}
+
+.underlinedText {
+    border-bottom: 1px solid gray;
+}
+
+#header {
+    border-bottom:1px solid gray;
+}
+
+#workPreferences {
+    text-align: center;
+    border-top: 1px solid gray;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+.icon {
+    float: right;
+    color: #172547;
+}
+
+.alignRight{
+    text-align: right;
+}
+
+#bottomTable {
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    position:relative;
+}
+
+#buttonTD {
+    padding-top: 2.5em;
+    border-top: 1px solid gray;
+}
+
+#serviceDistanceLabel {
+    text-align: right;
+    width:30%;
+    padding-bottom: 3.5em;
+}
+
+#serviceDistanceInput {
+    text-align: right;
+    width:18%;
+    padding-bottom: 3.5em;
+}
+
+#consultationFeeLabel {
+    text-align: right;
+    width:15%;
+    padding-bottom: 3.5em;
+}
+
+#consultationFeeInput {
+    padding-bottom: 3.5em;
+}
+
+#button {
+    align-content:center;
+}
+
+#saveChangesButton {
+    background-color: #172547;
+}

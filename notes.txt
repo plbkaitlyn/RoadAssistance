@@ -1,0 +1,20 @@
+*403.14 HTTP error:
+-Need an index page to load => set a page/web form as a start page
+(right click on the aspx file)
+
+*Check for datatype when passing data with large value:
+cardNo (16 digits): int (wrong) ==> decimal(MySQL)/float/double(C#)
+
+*Handle date type:
+for card expiry date
+2 ways:
+-divide into 2 separate fields: month and year ==>easiest
+-store as float/decimal (3.21): March 2021
+
+-It is possible to insert a value for a AUTO_INCREMENT variable in MySQL
+=>after that when a new row is inserted into the table,
+the (largest value + 1) will be the next value of that AUTO_INCREMENT variable
+
+-It is possible to update a unique field with the same value
+ eg: UPDATE contractor SET license = 12356 WHERE userID = 10;
+//old license = 12356 
