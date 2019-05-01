@@ -39,7 +39,7 @@ namespace RoadAssistance
             for (int i = 0; i < _users.Count; i++)
             {
                 User u = (User)_users[i];
-                if (checkUser.Name == u.Name)
+                if (checkUser.UserName == u.UserName)
                 {
                     found = true;
                 }
@@ -57,7 +57,7 @@ namespace RoadAssistance
             {
                 throw new System.ApplicationException("Please enter the correct password!");
             }
-            HttpContext.Current.Session["UserName"] = checkUser.Name;
+            HttpContext.Current.Session["UserName"] = checkUser.UserName;
         }
 
         public void Register(User newUser)
@@ -67,7 +67,7 @@ namespace RoadAssistance
             {
                 User u = (User)_users[i];
 
-                if (newUser.Name == u.Name)
+                if (newUser.UserName == u.UserName)
                 {
                     found = true;
                     throw new System.ApplicationException("Username has already been registered!");

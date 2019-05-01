@@ -20,10 +20,10 @@ namespace RoadAssistance
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
                 connection.Open();
-                string query = "SELECT * FROM user WHERE userName = @name";
+                string query = "SELECT * FROM user WHERE userName = @username";
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@name", checkUser.Name);
+                cmd.Parameters.AddWithValue("@username", checkUser.UserName);
                 cmd.Parameters.AddWithValue("@password", checkUser.Password);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -35,10 +35,10 @@ namespace RoadAssistance
                 connection.Close();
 
                 connection.Open();
-                string query1 = "SELECT userType, userID FROM user WHERE userName = @name AND userPassword = @password";
+                string query1 = "SELECT userType, userID FROM user WHERE userName = @username AND userPassword = @password";
 
                 MySqlCommand cmd1 = new MySqlCommand(query1, connection);
-                cmd1.Parameters.AddWithValue("@name", checkUser.Name);
+                cmd1.Parameters.AddWithValue("@username", checkUser.UserName);
                 cmd1.Parameters.AddWithValue("@password", checkUser.Password);
                 MySqlDataReader dataReader1 = cmd1.ExecuteReader();
 

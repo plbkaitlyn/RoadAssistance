@@ -19,17 +19,17 @@ namespace RoadAssistance
                 connection.Open();
                 try
                 {
-                    string userQuery = "INSERT INTO user(userType, userName, userpassword) VALUES (@type, @name, @password)";
+                    string userQuery = "INSERT INTO user(userType, userName, userpassword) VALUES (@type, @userName, @password)";
 
                     MySqlCommand userCmd = new MySqlCommand(userQuery, connection);
-                    userCmd.Parameters.AddWithValue("@name", newUser.Name);
+                    userCmd.Parameters.AddWithValue("@userName", newUser.UserName);
                     userCmd.Parameters.AddWithValue("@type", "customer");
                     userCmd.Parameters.AddWithValue("@password", newUser.Password);
                     userCmd.ExecuteNonQuery();
 
-                    string query = "SELECT userID FROM user WHERE userName = @name";
+                    string query = "SELECT userID FROM user WHERE userName = @userName";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@name", newUser.Name);
+                    cmd.Parameters.AddWithValue("@userName", newUser.UserName);
                     MySqlDataReader dataReader = cmd.ExecuteReader();
                     int userID = 0;
                     if (dataReader.Read())
@@ -40,10 +40,11 @@ namespace RoadAssistance
                     connection.Close();
                     connection.Open();
 
-                    string customerQuery = "INSERT INTO customer VALUES (@userID, @name, @password, @email)";
+                    string customerQuery = "INSERT INTO customer VALUES (@userID, @fullname, @username, @password, @email)";
                     MySqlCommand customerCmd = new MySqlCommand(customerQuery, connection);
                     customerCmd.Parameters.AddWithValue("@userID", userID);
-                    customerCmd.Parameters.AddWithValue("@name", newUser.Name);
+                    customerCmd.Parameters.AddWithValue("@fullname", newUser.FullName);
+                    customerCmd.Parameters.AddWithValue("@username", newUser.UserName);
                     customerCmd.Parameters.AddWithValue("@password", newUser.Password);
                     customerCmd.Parameters.AddWithValue("@email", newUser.Email);
                     customerCmd.ExecuteNonQuery();
@@ -127,7 +128,7 @@ namespace RoadAssistance
                 connection.Open();
                 try
                 {
-                    string query = "SELECT userID FROM customer WHERE email = @email";
+                    /*string query = "SELECT userID FROM customer WHERE email = @email";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
                     cmd.Parameters.AddWithValue("@email", user.Email);
                     MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -139,10 +140,13 @@ namespace RoadAssistance
 
                     connection.Close();
                     connection.Open();
-                    string userQuery = "UPDATE user SET userName=@name, userpassword=@password WHERE userID = @userID";
+                    */
+                    int userID = (int)HttpContext.Current.Session["UserID"];
+
+                    string userQuery = "UPDATE user SET userName=@userName, userpassword=@password WHERE userID = @userID";
 
                     MySqlCommand userCmd = new MySqlCommand(userQuery, connection);
-                    userCmd.Parameters.AddWithValue("@name", user.Name);
+                    userCmd.Parameters.AddWithValue("@userName", user.UserName);
                     userCmd.Parameters.AddWithValue("@userID", userID);
                     userCmd.Parameters.AddWithValue("@password", user.Password);
                     userCmd.ExecuteNonQuery();
@@ -150,12 +154,12 @@ namespace RoadAssistance
                     connection.Close();
                     connection.Open();
 
-                    string customerQuery = "UPDATE customer SET userName=@name,userPassword=@password,email=@email WHERE userID=@userID";
+                    string customerQuery = "UPDATE customer SET name=@fullname,userName=@userName,userPassword=@password WHERE userID=@userID";
                     MySqlCommand customerCmd = new MySqlCommand(customerQuery, connection);
                     customerCmd.Parameters.AddWithValue("@userID", userID);
-                    customerCmd.Parameters.AddWithValue("@name", user.Name);
+                    customerCmd.Parameters.AddWithValue("@fullname", user.FullName);
+                    customerCmd.Parameters.AddWithValue("@userName", user.UserName);
                     customerCmd.Parameters.AddWithValue("@password", user.Password);
-                    customerCmd.Parameters.AddWithValue("@email", user.Email);
                     customerCmd.ExecuteNonQuery();
 
                     connection.Close();
@@ -168,10 +172,6 @@ namespace RoadAssistance
                     if (ex.Message.Contains("user_ck1"))
                     {
                         throw new System.ApplicationException("Username has already been used. Please try another one!");
-                    }
-                    else if (ex.Message.Contains("customer_ck2"))
-                    {
-                        throw new System.ApplicationException("You have already used this email address to register!");
                     }
                     else
                     {

@@ -3,7 +3,8 @@
 }
 
 function saveChanges() {
-    var name = document.getElementById("userName");
+    var fullname = document.getElementById("name");
+    var username = document.getElementById("userName");
     var password = document.getElementById("password");
     var email = document.getElementById("email");
     var cardName = document.getElementById("cardName");
@@ -51,10 +52,10 @@ function saveChanges() {
     }
 
     if (isInt(cardNo.value) && isInt(cvv.value) && check == true) {
-        RoadService.CustomerUpdateProfile(name.value, password.value, email.value, regNo.value, make.value, model.value, color.value, cardName.value, Number(cardNo.value), parseInt(expMonth), parseInt(expYear), parseInt(cvv.value), onCustomerUpdateProfile);
+        RoadService.CustomerUpdateProfile(fullname.value, username.value, password.value, email.value, regNo.value, make.value, model.value, color.value, cardName.value, Number(cardNo.value), parseInt(expMonth), parseInt(expYear), parseInt(cvv.value), onCustomerUpdateProfile);
         //RoadService.CustomerUpdateProfile(Number(cardNo.value), name.value, password.value, email.value, accName.value, parseInt(accNo.value), parseInt(bsb.value), onCustomerUpdateProfile);
     }
-}/**/
+}
 
 function onCustomerUpdateProfile(result) {
     if (result === "") {
@@ -82,4 +83,12 @@ function isInt(value) {
 
 function validateDate(expDate) {
     return /^(0[1-9]|1[0-2])\/\d{2}$/.test(expDate);
+}
+
+function logout() {
+    RoadService.Logout(onLogout);
+}
+
+function onLogout() {
+    window.location = "../Login.aspx";
 }

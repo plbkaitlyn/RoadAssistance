@@ -16,7 +16,7 @@ namespace RoadAssistance
         }
         
         protected string _userName;
-        public string Name
+        public string UserName
         {
             get { return _userName; }
         }

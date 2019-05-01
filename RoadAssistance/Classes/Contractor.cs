@@ -12,7 +12,13 @@ namespace RoadAssistance
         {
             get { return _license; }
         }
-        
+
+        private string _fullname;
+        public string FullName
+        {
+            get { return _fullname; }
+        }
+
         private string _userEmail;
         public string Email
         {
@@ -37,9 +43,10 @@ namespace RoadAssistance
             get { return _bsb; }
         }
         
-        public Contractor(int license, string name, string password, string email, string accName, int accNo, int bsb) : base (name, password)
+        public Contractor(string fullname, int license, string userName, string password, string email, string accName, int accNo, int bsb) : base (userName, password)
         {
             _license = license;
+            _fullname = fullname;
             _userEmail = email;
             _accName = accName;
             _accNo = accNo;

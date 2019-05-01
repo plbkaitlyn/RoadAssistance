@@ -6,10 +6,10 @@
 
 function onLogin(result) {
     if (result === "contractor") {
-        window.location = "ContractorHomepage.aspx";
+        window.location = "Contractor/ContractorHomepage.aspx";
     }
     else if (result === "customer") {
-       window.location = "CustomerHomepage.aspx";
+       window.location = "Customer/CustomerHomepage.aspx";
     }
     else {
         var loginForm = document.getElementById("loginForm");
@@ -41,24 +41,25 @@ function logout() {
 }
 
 function onLogout() {
-    window.location = "Login.aspx";
+    window.location = "../Login.aspx";
 }
 
 
 function registerAsCustomer() {
-    window.location = "CustomerRegistration.aspx";
+    window.location = "Customer/CustomerRegistration.aspx";
 }
 
 function registerAsContractor() {
-    window.location = "ContractorRegistration.aspx";
+    window.location = "Contractor/ContractorRegistration.aspx";
 }
 
 function backToLogin() {
-    window.location = "Login.aspx";
+    window.location = "../Login.aspx";
 }
 
 function customerRegister() {
-    var name = document.getElementById("userName");
+    var fullname = document.getElementById("name");
+    var username = document.getElementById("userName");
     var password = document.getElementById("password");
     var email = document.getElementById("email");
     var regNo = document.getElementById("regNo");
@@ -76,7 +77,7 @@ function customerRegister() {
     var check = true;
 
     var errorMessage = document.getElementById("error");
-    if (name.value == "" || password.value == "" || email.value == "" || regNo.value == "" || make.value == "" || model.value == "" ||
+    if (fullname.value == "" || username.value == "" || password.value == "" || email.value == "" || regNo.value == "" || make.value == "" || model.value == "" ||
         color.value == "" || cardName.value == "" || cardNo.value == "" || expDate == "" || cvv.value == "") {
         errorMessage.innerText = "No field is empty!";
         check = false;
@@ -130,14 +131,14 @@ function customerRegister() {
     //int day = moment.Day; || moment.Month;
     
     if (isInt(cardNo.value) && isInt(cvv.value) && check == true) {
-        RoadService.CustomerRegister(name.value, password.value, email.value, regNo.value, make.value, model.value, color.value,
+        RoadService.CustomerRegister(fullname.value, username.value, password.value, email.value, regNo.value, make.value, model.value, color.value,
             cardName.value, Number(cardNo.value), parseInt(expMonth), parseInt(expYear), parseInt(cvv.value), onCustomerRegister);
     }
 }
 
 function onCustomerRegister(result) {
     if (result === "") {
-        window.location = "Login.aspx";
+        window.location = "../Login.aspx";
     }
     else {
         var registerForm = document.getElementById("customerRegisterForm");
@@ -155,8 +156,9 @@ function onCustomerRegister(result) {
 }
 
 function contractorRegister() {
+    var fullname = document.getElementById("name");
     var license = document.getElementById("license");
-    var name = document.getElementById("userName");
+    var username = document.getElementById("userName");
     var password = document.getElementById("password");
     var email = document.getElementById("email");
     var accName = document.getElementById("accName");
@@ -167,7 +169,7 @@ function contractorRegister() {
     var check = true;
 
     var errorMessage = document.getElementById("error");
-    if (license.value == "" || name.value == "" || password.value == "" || email.value == "" || accName.value == "" || accNo.value == "" || bsb.value == "") {
+    if (fullname.value == "" || license.value == "" || username.value == "" || password.value == "" || email.value == "" || accName.value == "" || accNo.value == "" || bsb.value == "") {
         errorMessage.innerText = "No field is empty!";
         check = false;
     }
@@ -214,11 +216,29 @@ function contractorRegister() {
         }
     }
 
-
     if (isInt(license.value) && isInt(accNo.value) && isInt(bsb.value) && check == true) {
-        RoadService.ContractorRegister(parseInt(license.value), name.value, password.value, email.value, accName.value, parseInt(accNo.value), parseInt(bsb.value), onContractorRegister);
+        RoadService.ContractorRegister(fullname.value, parseInt(license.value), username.value, password.value, email.value, accName.value, parseInt(accNo.value), parseInt(bsb.value), onContractorRegister);
     }
- }
+}
+
+function onContractorRegister(result) {
+    if (result === "") {
+        window.location = "../Login.aspx";
+    }
+    else {
+        var registerForm = document.getElementById("contractorRegisterForm");
+        var errorMessage = document.getElementById("contractorRegisterError");
+        if (errorMessage === null) {
+            errorMessage = document.createElement("span");
+            errorMessage.setAttribute("id", "contractorRegisterError");
+            errorMessage.setAttribute("class", "errorMessage");
+            registerForm.appendChild(document.createElement("br"));
+            registerForm.appendChild(document.createElement("br"));
+            registerForm.appendChild(errorMessage);
+        }
+        errorMessage.innerText = result;
+    }
+}
     /*
     var contractor = function () {
         this._license = license.value;
@@ -250,22 +270,4 @@ function validateDate(expDate) {
     return /^(0[1-9]|1[0-2])\/\d{2}$/.test(expDate);
 }
 
-function onContractorRegister(result) {
-    if (result === "") {
-        window.location = "Login.aspx";
-    }
-    else {
-        var registerForm = document.getElementById("contractorRegisterForm");
-        var errorMessage = document.getElementById("contractorRegisterError");
-        if (errorMessage === null) {
-            errorMessage = document.createElement("span");
-            errorMessage.setAttribute("id", "contractorRegisterError");
-            errorMessage.setAttribute("class", "errorMessage");
-            registerForm.appendChild(document.createElement("br"));
-            registerForm.appendChild(document.createElement("br"));
-            registerForm.appendChild(errorMessage);
-        }
-        errorMessage.innerText = result;
 
-    }
-}

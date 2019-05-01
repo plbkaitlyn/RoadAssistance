@@ -5,12 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Customer Register</title>
-    <link rel="stylesheet" href="css/Registration.css" />
-    <script src="script/script.js"></script>
+    <link rel="stylesheet" href="/../css/Registration.css" />
+    <script src="/../script/script.js"></script>
 </head>
 <body>
     <div id="customerRegisterForm">
     <span>Account Details</span><br/>
+    <span>Full Name:</span><br/><input type="text" id="name" /> <br />
     <span>Username:</span><br/><input type="text" id="userName" /> <br />
     <span>Password:</span><br/><input type="password" id="password" /> <br />
     <span>Email address:</span><br/><input type="text" id="email" /> 

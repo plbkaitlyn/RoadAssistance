@@ -1,0 +1,160 @@
+﻿/*Page Header*/
+#header {
+    border-bottom:1px solid gray;
+}
+
+#logo {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+}
+
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+#dropdownMenuButton {
+    width:75px;
+    padding:5px;
+}
+
+#spacing{
+    width:100%;
+    height:40px;
+}
+
+#update-details-image {
+    /*border-radius: 15px 15px 0px 0px;
+    text-align: center;
+    vertical-align: middle;
+    height: 100px;
+    width: 37%;*/
+    border-radius: 15px 15px 0px 0px;
+    text-align: center;
+    vertical-align: middle;
+    height: 100px;
+    width: 37%;
+    background-color: #172547;
+}
+
+#manage-work-settings-image {
+    /*border-radius: 15px 15px 0px 0px;
+    text-align: center;
+    vertical-align: middle;
+    width: 37%;*/
+    border-radius: 15px 15px 0px 0px;
+    text-align: center;
+    width: 37%;
+    vertical-align: middle;
+    background-color: #172547;
+}
+
+#find-work-image {
+    background-color: #172547;
+    height: 100px;
+    border-radius: 15px 15px 0px 0px;
+    text-align: center;
+    vertical-align: middle;
+    width: 37%;
+}
+
+.wrapper {
+    float: left;
+    border-radius: 15px 15px 0px 0px;
+    text-align: center;
+    vertical-align: middle;
+    height: 100px;
+    width: 37%;
+    background-color: #172547;
+    margin-left: 70px;
+    position: relative;
+}
+
+.parent {
+    width: 100%;
+    height: 100px;
+    display: inline-block;
+}
+
+.text {
+    border-radius: 0px 0px 15px 15px;
+    background-color: lightgray;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+#findWork {
+    top: 120px;
+    left: 25%;
+}
+
+#updateDetails {
+    margin-left: 10%;
+}
+
+body {
+    min-width: 750px;
+}
+
+#workList {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;
+    border-radius: 0px 0px 15px 15px;
+}
+
+/*tables*/
+#topTable {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-bottom: 35px;
+}
+
+#middleTable {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+/*
+#update-details-text    {
+    border-radius: 0px 0px 15px 15px;
+    background-color:lightgray;
+    height:50px;
+    width: 37.5%;
+    text-align: center;    
+}
+    
+#update-work-settings-text{
+    border-radius: 0px 0px 15px 15px;
+    background-color:lightgray;
+    height:50px;
+    width: 37.5%;
+    text-align: center;
+}
+*/

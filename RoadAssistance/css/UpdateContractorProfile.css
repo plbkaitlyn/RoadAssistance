@@ -74,7 +74,7 @@
     width:17%;
 }
 
-#nameLabel, #emailLabel, #passwordLabel, #licenseLabel {
+#nameLabel, #emailLabel, #passwordLabel, #licenseLabel, #usernameLabel {
     text-align: right;
     width: 20%;
 }
