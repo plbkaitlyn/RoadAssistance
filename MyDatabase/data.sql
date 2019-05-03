@@ -16,7 +16,10 @@ SET
 	@cost = 100.50,
 	@contractor = "Jim Fixer",
 	@review = "Good price!",
-	@rating = 3.5;
+	@rating = 3.5,
+	
+	@issue = "Engine",
+	@description = "Lose engine power and engine doesn't restart!";
 	
 INSERT INTO USER(userType, userName, userPassword) VALUES (@userType, @userName, @userPassword);
 SET @userID = LAST_INSERT_ID(); 
@@ -24,7 +27,7 @@ INSERT INTO CUSTOMER VALUES (@userID, @name, @userName, @userPassword, "linh@gma
 INSERT INTO VEHICLE VALUES (@regNo, @make, @model, @color, @userID);
 INSERT INTO PAYMENT VALUES (@cardName, @cardNo, @expMonth, @expYear, @cvv, @userID);
 INSERT INTO PAST_TRANSACTION(cost, contractor, review, rating, userID) VALUES (@cost, @contractor, @review, @rating, @userID);
-
+INSERT INTO REQUEST(issueType, description, cusID) VALUES (@issue, @description, @userID);
 
 SET
 	@userType = "customer",
@@ -95,12 +98,12 @@ SET
 	@userPassword = "jim1",
 	
 	@distance = 10,
-	@customer = "Mike Rotch",
+	@customerID = 1,
 	@issue = "Engine";
 INSERT INTO USER(userType, userName, userPassword) VALUES (@userType, @userName, @userPassword);
 SET @userID = LAST_INSERT_ID();
 INSERT INTO CONTRACTOR VALUES (@userID, @name, @license, @userName, @userPassword, "john@yahoo.com");
-INSERT INTO WORK(distance, customer, issue, userID) VALUES (@distance, @customer, @issue, @userID);	
+INSERT INTO WORK(distance, customerID, issue, userID) VALUES (@distance, @customerID, @issue, @userID);	
 
 
 SET

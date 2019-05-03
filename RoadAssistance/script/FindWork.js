@@ -13,11 +13,8 @@ function onFindWork(result) {
 
 function displayWork(jobs) {
     var table = document.getElementById("table");
-    var index = 0;
 
     for (var i = 0; i < jobs.length; i++) {
-        index++;
-
         var row = document.createElement("div");
         row.setAttribute("class", "tableRow");
 
@@ -44,21 +41,46 @@ function displayWork(jobs) {
         var buttonCol = document.createElement("div");
         buttonCol.setAttribute("class", "tableCell");
 
+        var job = jobs[i];
+
         var viewButton = document.createElement("button");
         viewButton.setAttribute("class", "btn btn-primary viewButton");
         viewButton.innerText = "View Description";
         viewButton.addEventListener("click", function () {
-            //displayRequestDescription();
+            displayJobDetails(job);
         });
         buttonCol.appendChild(viewButton);
-
         row.appendChild(buttonCol);
         table.appendChild(row);
     }
 }
 
-function displayRequestDescription() {
-    window.location = "RequestDescription.aspx";
+function displayJobDetails(job) {
+    var customerID = job.CustomerID;
+    localStorage.setItem('cusID', customerID);
+    window.location = "ViewJobDetails.aspx";
+}
+
+function onGetJobDetails(result) {
+    if (parseJSON(result)) {
+        window.location = "ViewJobDetails.aspx";
+        var request = JSON.parse(result);
+
+        displayJobDetailsPage(request);
+    }
+    else {
+        var errorPlaceholder = document.getElementById("errorPlaceholder");
+        var errorMessage = document.getElementById("displayJobDetailsError");
+        if (errorMessage === null) {
+            errorMessage = document.createElement("span");
+            errorMessage.setAttribute("id", "displayJobDetailsError");
+            errorMessage.setAttribute("class", "errorMessage");
+            errorPlaceholder.appendChild(document.createElement("br"));
+            errorPlaceholder.appendChild(document.createElement("br"));
+            errorPlaceholder.appendChild(errorMessage);
+        }
+        errorMessage.innerText = result;
+    }
 }
 
 function logout() {

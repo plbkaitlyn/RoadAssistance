@@ -12,7 +12,7 @@ namespace RoadAssistance.Classes
         {
             get { return _workID; }
         }
-
+        
         private double _distance;
         public double Distance
         {
@@ -25,18 +25,26 @@ namespace RoadAssistance.Classes
             get { return _customerName; }
         }
 
+        private int _customerID;
+        public int CustomerID
+        {
+            get { return _customerID; }
+        }
+
         private string _issueType;
         public string IssueType
         {
             get { return _issueType; }
         }
 
-        public Work(int id, double distance, string name, string type)
+        public Work(int workID, double distance, string customerName, int customerID, string type)
         {
-            _workID = id;
+            _workID = workID;
             _distance = distance;
-            _customerName = name;
+            _customerName = customerName;
+            _customerID = customerID;
             _issueType = type;
         }
+        /**/
     }
 }

@@ -31,7 +31,9 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="UpdateContractorProfile.aspx">Profile</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../Login.aspx" onclick="logout();">Logout</a>
+                    <a class="dropdown-item" href="#">Past Transactions</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../Login.aspx">Logout</a>
                 </div>
             </div>
             <a class="navbar-brand" href="Default" id="logo">

@@ -31,3 +31,9 @@ the (largest value + 1) will be the next value of that AUTO_INCREMENT variable
 *Fix database:
 -User: add email
 -Customer & Contractor: remove userName, userPassword and Email
+
+*Pass data between pages:
+-Use localStorage.
+eg: localStorage.setItem('cusID', customerID); //page 1 (pass data)
+    var customerID = localStorage['cusID']; //page 2 (get data and remove data from localStorage)
+    localStorage.removeItem('cusID');

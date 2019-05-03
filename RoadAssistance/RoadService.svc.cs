@@ -1,4 +1,5 @@
-﻿using RoadAssistance.DBData;
+﻿using RoadAssistance.Classes;
+using RoadAssistance.DBData;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -133,11 +134,34 @@ namespace RoadAssistance
         [OperationContract]
         public string FindWork()
         {
-            WorkDBData data = new WorkDBData();
-            ArrayList _jobs = data.FindWork();
+            try
+            {
+                WorkDBData data = new WorkDBData();
+                ArrayList _jobs = data.FindWork();
 
-            string json = new JavaScriptSerializer().Serialize(_jobs);
-            return json;
+                string json = new JavaScriptSerializer().Serialize(_jobs);
+                return json;
+            }
+            catch (Exception oEx)
+            {
+                return oEx.Message;
+            }
+        }
+        
+        [OperationContract]
+        public string GetJobDetails(int customerID)
+        {
+            try
+            {
+                WorkDBData data = new WorkDBData();
+                Request request = data.GetJobDetails(customerID);
+                string json = new JavaScriptSerializer().Serialize(request);
+                return json;
+            }
+            catch (Exception oEx)
+            {
+                return oEx.Message;
+            }
         }
     }
 }

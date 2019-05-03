@@ -91,7 +91,9 @@
     <Content Include="css\ContractorHomepage.css" />
     <Content Include="css\CustomerHomepage.css" />
     <Content Include="css\FindWork.css" />
+    <Content Include="css\ViewJobDetails.css" />
     <Content Include="script\FindWork.js" />
+    <Content Include="script\ViewJobDetails.js" />
     <Content Include="Webforms\Contractor\ContractorHomepage.aspx" />
     <Content Include="Webforms\Contractor\ContractorRegistration.aspx" />
     <Content Include="css\Login.css" />
@@ -100,6 +102,7 @@
     <Content Include="css\UpdateCustomerProfile.css" />
     <Content Include="css\ViewPastTransactions.css" />
     <Content Include="Webforms\Contractor\FindWork.aspx" />
+    <Content Include="Webforms\Contractor\ViewJobDetails.aspx" />
     <Content Include="Webforms\Customer\CustomerHomepage.aspx" />
     <Content Include="Webforms\Customer\CustomerRegistration.aspx" />
     <Content Include="script\script.js" />
@@ -117,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Contractor.cs" />
+    <Compile Include="Classes\Request.cs" />
     <Compile Include="Classes\Transaction.cs" />
     <Compile Include="Classes\Work.cs" />
     <Compile Include="DBData\ContractorDBData.cs" />
@@ -143,6 +147,13 @@
     </Compile>
     <Compile Include="Webforms\Contractor\FindWork.aspx.designer.cs">
       <DependentUpon>FindWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\Contractor\ViewJobDetails.aspx.cs">
+      <DependentUpon>ViewJobDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\Contractor\ViewJobDetails.aspx.designer.cs">
+      <DependentUpon>ViewJobDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webforms\Customer\CustomerHomepage.aspx.cs">
       <DependentUpon>CustomerHomepage.aspx</DependentUpon>

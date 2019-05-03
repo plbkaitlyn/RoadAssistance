@@ -1,0 +1,147 @@
+﻿h2 {
+    color: #333;
+}
+/*Page Header*/
+#logo {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+}
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+#dropdownMenuButton {
+    width: 75px;
+    padding: 5px;
+}
+
+#spacing {
+    width: 100%;
+    height: 40px;
+}
+
+/*Tables*/
+#details {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+#carDetails {
+    text-align: center;
+    width: 250px;
+    padding-bottom: 1.5em;
+}
+
+.bottomLabel {
+    text-align: right;
+    padding-bottom: 1.5em;
+}
+
+#customerText {
+    padding-bottom: 1.5em;
+    border-right: 1px solid gray;
+}
+
+#registrationText {
+    padding-bottom: 1.5em;
+}
+
+.borderRight {
+    border-right: 1px solid gray;
+}
+
+#jobDetails {
+    text-align: center;
+    width: 50%;
+    border-right: 1px solid gray;
+    color: black;
+    padding-bottom: 1.5em;
+}
+
+.jobDetailsLabels {
+    width: 22%;
+    text-align: right;
+}
+
+#makeText {
+    text-align: left;
+}
+
+.underlinedText {
+    border-bottom: 1px solid gray;
+}
+
+#header {
+    border-bottom: 1px solid gray;
+}
+
+#descriptionHeader {
+    text-align: center;
+    border-top: 1px solid gray;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+.icon {
+    float: right;
+    color: #172547;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+#bottomTable {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+#descriptionText {
+    width: 800px;
+    height: 150px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 40px;
+}
+
+#buttonTD {
+    padding-top: 2.5em;
+    border-top: 1px solid gray;
+}
+
+#button {
+    align-content: center;
+}
+
+#selectJobButton {
+    background-color: #172547;
+}
