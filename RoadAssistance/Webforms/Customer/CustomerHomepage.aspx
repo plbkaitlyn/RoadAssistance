@@ -61,7 +61,7 @@
     </div>
     </a>
 
-    <a href="#">
+    <a href="ManageSubscription.aspx">
     <div class="wrapper">
         <div class="parent" id="manage-subscription-image">
             <i class="fas fa-toolbox" style='font-size:55px; color:lightgray; margin-top: 15px;'></i>

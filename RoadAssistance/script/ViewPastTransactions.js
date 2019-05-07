@@ -38,6 +38,7 @@ function displayPastTransactions(transactions) {
 
         var reviewCol = document.createElement("div");
         reviewCol.setAttribute("class", "tableCell review");
+        reviewCol.setAttribute("id", "reviewDiv" + index);
         var reviewInput = document.createElement("input");
         reviewInput.setAttribute("type", "text");
         reviewInput.setAttribute("class", "reviewInput");
@@ -61,39 +62,59 @@ function displayPastTransactions(transactions) {
         var buttonCol = document.createElement("div");
         buttonCol.setAttribute("class", "tableCell");
 
-        var editButton = document.createElement("button");
-        editButton.setAttribute("class", "btn btn-primary editButton");
-        editButton.innerText = "Edit";
-        editButton.addEventListener("click", function () {
-            var reviews = document.getElementsByClassName("reviewInput");
-            for (var k = 0; k < reviews.length; k++) {
-                reviews[k].disabled = false;
-            }
-            var ratings = document.getElementsByClassName("ratingInput");
-            for (var n = 0; n < ratings.length; n++) {
-                ratings[n].disabled = false;
-            }
-        });
-        buttonCol.appendChild(editButton);
+        var button = document.createElement("button");
+        button.setAttribute("class", "btn btn-primary editButton");
+        button.innerText = "Edit";
+        var edit = true;
+        button.addEventListener("click", function () {
+            if (edit) {
+                edit = false;
+                button.innerText = "Save";
+                reviewInput.disabled = false;
+                reviewInput.style.backgroundColor = "#729393";
+                ratingInput.disabled = false;
+                ratingInput.style.backgroundColor = "#729393";
+                /*var reviews = document.getElementsByClassName("reviewInput");
+                for (var k = 0; k < reviews.length; k++) {
+                    reviews[k].disabled = false;
+                    //reviews[k].style.backgroundColor = "#2D4E4E";
+                }*/
 
-        var saveButton = document.createElement("button");
-        saveButton.setAttribute("class", "btn btn-primary saveButton");
-        saveButton.innerText = "Save";
-        saveButton.addEventListener("click", function () {
-            savePastTransaction(index);
+                /*
+                reviewCol.addEventListener("mouseover", function () {
+                    var input = document.getElementById("review" + index);
+                    console.log("Input: " + reviewInput);
+                    reviewInput.style.backgroundColor = "blue";
+                    
+                });
+                reviewCol.addEventListener("mouseout", function () {
+                    reviewInput.style.backgroundColor = "#172547";
+                });
+                */
+            }
+            else {
+                edit = true;
+                button.innerText = "Edit";
+                button.addEventListener("click", save(index));
+            }
         });
-        buttonCol.appendChild(saveButton);
+        buttonCol.appendChild(button);
 
         row.appendChild(buttonCol);
         table.appendChild(row);
     }
 }
-
+function save(index) {
+    savePastTransaction(index);
+    alert("Successfully saved");
+}
 function savePastTransaction(index) {
     var review = document.getElementById("review" + index);
     review.disabled = true;
+    review.style.backgroundColor = "";
     var rating = document.getElementById("rating" + index);    
     rating.disabled = true;
+    rating.style.backgroundColor = "";
 
     if (Number(rating.value)) {
         RoadService.SavePastTransaction(review.value, parseFloat(rating.value), onSavePastTransaction);

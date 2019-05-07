@@ -133,7 +133,7 @@
     margin-bottom: 40px;
 }
 
-#buttonTD {
+.buttonTD {
     padding-top: 2.5em;
     border-top: 1px solid gray;
 }
@@ -142,6 +142,6 @@
     align-content: center;
 }
 
-#selectJobButton {
+#acceptJobButton, #declineJobButton {
     background-color: #172547;
 }

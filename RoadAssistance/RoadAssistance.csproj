@@ -106,6 +106,7 @@
     <Content Include="Webforms\Customer\CustomerHomepage.aspx" />
     <Content Include="Webforms\Customer\CustomerRegistration.aspx" />
     <Content Include="script\script.js" />
+    <Content Include="Webforms\Customer\ManageSubscription.aspx" />
     <Content Include="Webforms\Login.aspx" />
     <Content Include="RoadService.svc" />
     <Content Include="script\UpdateContractorProfile.js" />
@@ -170,6 +171,13 @@
       <DependentUpon>CustomerRegistration.aspx</DependentUpon>
     </Compile>
     <Compile Include="DBData\TransactionDBData.cs" />
+    <Compile Include="Webforms\Customer\ManageSubscription.aspx.cs">
+      <DependentUpon>ManageSubscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\Customer\ManageSubscription.aspx.designer.cs">
+      <DependentUpon>ManageSubscription.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Webforms\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -86,7 +86,12 @@
         </tr>
     </table>
     <table id="bottomTable">
-        <tr><td class="text-center" id="buttonTD" colspan="4"><button class="btn btn-primary" id="selectJobButton" type="submit">Select Job</button></td></tr>
+        <tr>
+            <td class="text-center buttonTD" <%--id="buttonTD" --%>colspan="4">
+                <button class="btn btn-primary" id="acceptJobButton" type="submit">Accept Job</button>
+                <button class="btn btn-primary" id="declineJobButton" type="submit">Decline Job</button>
+            </td>
+        </tr>
     </table>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
