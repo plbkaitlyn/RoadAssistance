@@ -18,3 +18,22 @@ the (largest value + 1) will be the next value of that AUTO_INCREMENT variable
 -It is possible to update a unique field with the same value
  eg: UPDATE contractor SET license = 12356 WHERE userID = 10;
 //old license = 12356 
+
+
+*View Past Transactions:
+-Contractor Name retrieve from database (add "Name" attribute in class Contractor) 
+=> should not be edited by customer.
+
+-JS: var elements = document.getElementsByClassName("name")
+==> needs to use for loop to make changes to each element!
+
+
+*Fix database:
+-User: add email
+-Customer & Contractor: remove userName, userPassword and Email
+
+*Pass data between pages:
+-Use localStorage.
+eg: localStorage.setItem('cusID', customerID); //page 1 (pass data)
+    var customerID = localStorage['cusID']; //page 2 (get data and remove data from localStorage)
+    localStorage.removeItem('cusID');

@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Roadside Assistance Service</title>
-    <link rel="stylesheet" href="css/Login.css" />
-    <script src="script/script.js"></script>
+    <link rel="stylesheet" href="/css/Login.css" />
+    <script src="/script/script.js"></script>
 </head>
 <body>
     <div id="loginForm">

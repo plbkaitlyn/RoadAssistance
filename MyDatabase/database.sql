@@ -1,7 +1,11 @@
 DROP TABLE VEHICLE;
 DROP TABLE PAYMENT;
+DROP TABLE REQUEST;
+DROP TABLE PAST_TRANSACTION;
+DROP TABLE WORK;
 DROP TABLE CUSTOMER;
 DROP TABLE ACCOUNT;
+/*DROP TABLE WORK;*/
 DROP TABLE CONTRACTOR;
 DROP TABLE USER;
 
@@ -16,6 +20,7 @@ CREATE TABLE USER (
 
 CREATE TABLE CUSTOMER (
 	userID			INTEGER				NOT NULL,
+	name			VARCHAR(500)		NOT NULL,
 	userName		VARCHAR(50)			NOT NULL,
     userPassword	VARCHAR(200)		NOT NULL,
 	email			VARCHAR(200)		NOT NULL,
@@ -26,6 +31,7 @@ CREATE TABLE CUSTOMER (
 
 CREATE TABLE CONTRACTOR (
 	userID			INTEGER				NOT NULL,
+	name			VARCHAR(500)		NOT NULL,
 	license			INTEGER				NOT NULL,
 	userName		VARCHAR(50)			NOT NULL,
     userPassword	VARCHAR(200)		NOT NULL,
@@ -69,22 +75,36 @@ CREATE TABLE ACCOUNT (
 
 CREATE TABLE REQUEST (
 	requestID		INTEGER				AUTO_INCREMENT,
-	category		VARCHAR(100)		NOT NULL,
+	issueType		VARCHAR(100)		NOT NULL,
 	description		VARCHAR(1000)		NOT NULL,
-	userID			INTEGER				NOT NULL,
+	/*userID			INTEGER				NOT NULL,*/
+	cusID			INTEGER				NOT NULL,
+	conID			INTEGER				NULL,
 	CONSTRAINT request_pk PRIMARY KEY (requestID),
-	CONSTRAINT request_fk FOREIGN KEY (userID) REFERENCES CUSTOMER (userID)
+	CONSTRAINT request_fk FOREIGN KEY (cusID) REFERENCES CUSTOMER (userID)
 );
 
 CREATE TABLE PAST_TRANSACTION (
 	transID			INTEGER				AUTO_INCREMENT,
-	cost			DECIMAL				NOT NULL,
+	cost			DECIMAL(10,2)		NOT NULL,
 	contractor		VARCHAR(300)		NOT NULL,
 	review			VARCHAR(1000)		NULL,
-	rating 			INTEGER				NULL,
+	rating 			DECIMAL(2,1)		NULL,
 	userID			INTEGER				NOT NULL,
 	CONSTRAINT transaction_pk PRIMARY KEY (transID),
 	CONSTRAINT transaction_fk FOREIGN KEY (userID) REFERENCES CUSTOMER (userID)
+);
+
+CREATE TABLE WORK (
+	workID			INTEGER				AUTO_INCREMENT,
+	distance 		DECIMAL(10,1)		NOT NULL,
+	customerID		INTEGER				NOT NULL,
+	/*customer		VARCHAR(300)		NOT NULL,*/
+	issue			VARCHAR(200)		NOT NULL,
+	userID			INTEGER				NOT NULL,
+	CONSTRAINT work_pk PRIMARY KEY (workID),
+	CONSTRAINT work_fk1 FOREIGN KEY (customerID) REFERENCES CUSTOMER (userID),
+	CONSTRAINT work_fk2	FOREIGN KEY (userID) REFERENCES CONTRACTOR (userID)
 );
 /*
 -Remove cardHolder in table Payment
@@ -93,5 +113,4 @@ Sign up as Customer: get the field id => insert into User table
 with userType="customer"
 =>also need to insert into customer table
 Sign up as Contractor: similar, userType="contractor"
-=>also need to insert into contractor table
-*/
+=>also need to insert into contractor table*/

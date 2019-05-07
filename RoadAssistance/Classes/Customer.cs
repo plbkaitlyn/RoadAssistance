@@ -7,6 +7,12 @@ namespace RoadAssistance
 {
     public class Customer : User
     {
+        private string _fullname;
+        public string FullName
+        {
+            get { return _fullname; }
+        }
+
         private string _userEmail;
         public string Email
         {
@@ -84,9 +90,10 @@ namespace RoadAssistance
             _cardNo = cardNo;
         }
 
-        public Customer(string name,string password,string email,string regNo,string make,string model,string color,string cardName,double cardNo,int expMonth,int expYear,int cvv)
-            : base(name, password)
+        public Customer(string fullname, string userName,string password,string email,string regNo,string make,string model,string color,string cardName,double cardNo,int expMonth,int expYear,int cvv)
+            : base(userName, password)
         {
+            _fullname = fullname;
             _userEmail = email;
             _regNo = regNo;
             _make = make;

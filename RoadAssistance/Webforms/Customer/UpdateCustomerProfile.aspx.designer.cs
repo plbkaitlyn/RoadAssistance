@@ -13,13 +13,13 @@ namespace RoadAssistance {
     public partial class UpdateCustomerProfile {
         
         /// <summary>
-        /// userName control.
+        /// name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText userName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText name;
         
         /// <summary>
         /// cardName control.
@@ -31,13 +31,13 @@ namespace RoadAssistance {
         protected global::System.Web.UI.HtmlControls.HtmlInputText cardName;
         
         /// <summary>
-        /// email control.
+        /// userName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText email;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText userName;
         
         /// <summary>
         /// cardNo control.
@@ -49,13 +49,13 @@ namespace RoadAssistance {
         protected global::System.Web.UI.HtmlControls.HtmlInputText cardNo;
         
         /// <summary>
-        /// password control.
+        /// email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText password;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText email;
         
         /// <summary>
         /// expDate control.
@@ -65,6 +65,15 @@ namespace RoadAssistance {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText expDate;
+        
+        /// <summary>
+        /// password control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText password;
         
         /// <summary>
         /// cvv control.

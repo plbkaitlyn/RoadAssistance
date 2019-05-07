@@ -4,7 +4,8 @@
 
 function saveChanges() {
     var license = document.getElementById("license");
-    var name = document.getElementById("userName");
+    var fullname = document.getElementById("name");
+    var username = document.getElementById("userName");
     var password = document.getElementById("password");
     var email = document.getElementById("email");
     var accName = document.getElementById("accName");
@@ -45,9 +46,9 @@ function saveChanges() {
     }
 
     if (isInt(license.value) && isInt(accNo.value) && isInt(bsb.value) && check == true) {
-        RoadService.ContractorUpdateProfile(parseInt(license.value), name.value, password.value, email.value, accName.value, parseInt(accNo.value), parseInt(bsb.value), onContractorUpdateProfile);
+        RoadService.ContractorUpdateProfile(fullname.value, parseInt(license.value), username.value, password.value, email.value, accName.value, parseInt(accNo.value), parseInt(bsb.value), onContractorUpdateProfile);
     }
-}/**/
+}
 
 function onContractorUpdateProfile(result) {
     if (result === "") {
@@ -79,4 +80,12 @@ function isInt(value) {
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+}
+
+function logout() {
+    RoadService.Logout(onLogout);
+}
+
+function onLogout() {
+    window.location = "../Login.aspx";
 }

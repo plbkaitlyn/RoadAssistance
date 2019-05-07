@@ -88,66 +88,101 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ContractorHomepage.aspx" />
-    <Content Include="ContractorRegistration.aspx" />
+    <Content Include="css\ContractorHomepage.css" />
+    <Content Include="css\CustomerHomepage.css" />
+    <Content Include="css\FindWork.css" />
+    <Content Include="css\ViewJobDetails.css" />
+    <Content Include="script\FindWork.js" />
+    <Content Include="script\ViewJobDetails.js" />
+    <Content Include="Webforms\Contractor\ContractorHomepage.aspx" />
+    <Content Include="Webforms\Contractor\ContractorRegistration.aspx" />
     <Content Include="css\Login.css" />
     <Content Include="css\Registration.css" />
     <Content Include="css\UpdateContractorProfile.css" />
     <Content Include="css\UpdateCustomerProfile.css" />
     <Content Include="css\ViewPastTransactions.css" />
-    <Content Include="CustomerHomepage.aspx" />
-    <Content Include="CustomerRegistration.aspx" />
+    <Content Include="Webforms\Contractor\FindWork.aspx" />
+    <Content Include="Webforms\Contractor\ViewJobDetails.aspx" />
+    <Content Include="Webforms\Customer\CustomerHomepage.aspx" />
+    <Content Include="Webforms\Customer\CustomerRegistration.aspx" />
     <Content Include="script\script.js" />
-    <Content Include="Login.aspx" />
+    <Content Include="Webforms\Customer\ManageSubscription.aspx" />
+    <Content Include="Webforms\Login.aspx" />
     <Content Include="RoadService.svc" />
     <Content Include="script\UpdateContractorProfile.js" />
     <Content Include="script\UpdateCustomerProfile.js" />
     <Content Include="script\ViewPastTransactions.js" />
-    <Content Include="UpdateContractorProfile.aspx" />
-    <Content Include="UpdateCustomerProfile.aspx" />
-    <Content Include="ViewPastTransactions.aspx" />
+    <Content Include="Webforms\Contractor\UpdateContractorProfile.aspx" />
+    <Content Include="Webforms\Customer\UpdateCustomerProfile.aspx" />
+    <Content Include="Webforms\Customer\ViewPastTransactions.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Contractor.cs" />
+    <Compile Include="Classes\Request.cs" />
+    <Compile Include="Classes\Transaction.cs" />
+    <Compile Include="Classes\Work.cs" />
     <Compile Include="DBData\ContractorDBData.cs" />
-    <Compile Include="ContractorHomepage.aspx.cs">
+    <Compile Include="DBData\WorkDBData.cs" />
+    <Compile Include="Webforms\Contractor\ContractorHomepage.aspx.cs">
       <DependentUpon>ContractorHomepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ContractorHomepage.aspx.designer.cs">
+    <Compile Include="Webforms\Contractor\ContractorHomepage.aspx.designer.cs">
       <DependentUpon>ContractorHomepage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ContractorRegistration.aspx.cs">
+    <Compile Include="Webforms\Contractor\ContractorRegistration.aspx.cs">
       <DependentUpon>ContractorRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ContractorRegistration.aspx.designer.cs">
+    <Compile Include="Webforms\Contractor\ContractorRegistration.aspx.designer.cs">
       <DependentUpon>ContractorRegistration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Classes\Customer.cs" />
     <Compile Include="DBData\CustomerDBData.cs" />
-    <Compile Include="CustomerHomepage.aspx.cs">
+    <Compile Include="Webforms\Contractor\FindWork.aspx.cs">
+      <DependentUpon>FindWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\Contractor\FindWork.aspx.designer.cs">
+      <DependentUpon>FindWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\Contractor\ViewJobDetails.aspx.cs">
+      <DependentUpon>ViewJobDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\Contractor\ViewJobDetails.aspx.designer.cs">
+      <DependentUpon>ViewJobDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\Customer\CustomerHomepage.aspx.cs">
       <DependentUpon>CustomerHomepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CustomerHomepage.aspx.designer.cs">
+    <Compile Include="Webforms\Customer\CustomerHomepage.aspx.designer.cs">
       <DependentUpon>CustomerHomepage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CustomerRegistration.aspx.cs">
+    <Compile Include="Webforms\Customer\CustomerRegistration.aspx.cs">
       <DependentUpon>CustomerRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CustomerRegistration.aspx.designer.cs">
+    <Compile Include="Webforms\Customer\CustomerRegistration.aspx.designer.cs">
       <DependentUpon>CustomerRegistration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
+    <Compile Include="DBData\TransactionDBData.cs" />
+    <Compile Include="Webforms\Customer\ManageSubscription.aspx.cs">
+      <DependentUpon>ManageSubscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\Customer\ManageSubscription.aspx.designer.cs">
+      <DependentUpon>ManageSubscription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webforms\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
+    <Compile Include="Webforms\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,27 +190,27 @@
       <DependentUpon>RoadService.svc</DependentUpon>
     </Compile>
     <Compile Include="Classes\User.cs" />
-    <Compile Include="UpdateContractorProfile.aspx.cs">
+    <Compile Include="Webforms\Contractor\UpdateContractorProfile.aspx.cs">
       <DependentUpon>UpdateContractorProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UpdateContractorProfile.aspx.designer.cs">
+    <Compile Include="Webforms\Contractor\UpdateContractorProfile.aspx.designer.cs">
       <DependentUpon>UpdateContractorProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UpdateCustomerProfile.aspx.cs">
+    <Compile Include="Webforms\Customer\UpdateCustomerProfile.aspx.cs">
       <DependentUpon>UpdateCustomerProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UpdateCustomerProfile.aspx.designer.cs">
+    <Compile Include="Webforms\Customer\UpdateCustomerProfile.aspx.designer.cs">
       <DependentUpon>UpdateCustomerProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserData.cs" />
+    <Compile Include="Webforms\UserData.cs" />
     <Compile Include="DBData\UserDBData.cs" />
-    <Compile Include="ViewPastTransactions.aspx.cs">
+    <Compile Include="Webforms\Customer\ViewPastTransactions.aspx.cs">
       <DependentUpon>ViewPastTransactions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewPastTransactions.aspx.designer.cs">
+    <Compile Include="Webforms\Customer\ViewPastTransactions.aspx.designer.cs">
       <DependentUpon>ViewPastTransactions.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

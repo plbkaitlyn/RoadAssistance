@@ -75,7 +75,7 @@
     width:17%;
 }
 
-#nameLabel {
+#nameLabel, #usernameLabel {
     text-align: right;
     width:17%;
 }
@@ -119,6 +119,7 @@
 
 .underlinedText {
     border-bottom: 1px solid gray;
+    margin-left: 22%;
 }
 
 #header {
